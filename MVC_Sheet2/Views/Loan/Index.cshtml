@@ -1,0 +1,28 @@
+﻿<!-- LOANS -->
+@{
+    ViewBag.Title = "Loans";
+}
+
+<h2>Loans</h2>
+
+<h3>Please fill out the following form</h3>
+<form action="/Loan/Index" method="post">
+    Enter your intial investment
+    <br/>
+    <input id="inital" type="number" name="init" value="@ViewData["init"]" min="0" required>
+    <br/><br/>
+    Enter your interest rate
+    <br/>
+    <input id="interest" type="number" name="intr" value="@ViewData["intr"]" min="0" required>
+    <br/><br/>
+    Enter the amount of years
+    <br/>
+    <input id="years" type="number" name="yrs" value="@ViewData["yrs"]" min="0" required>
+    <br/><br/>
+    <input type="submit" value="Calculate!">
+    <br/><br/>
+    @if (ViewData["res"] != null)
+    {
+        <p>@ViewData["res"]</p>
+    }
+</form>

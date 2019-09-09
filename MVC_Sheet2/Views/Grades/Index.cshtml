@@ -1,0 +1,27 @@
+﻿<!-- GRADES -->
+@{
+    ViewBag.Title = "Grades";
+}
+
+<h2>Enter your scores for the 3 tests</h2>
+@using (Html.BeginForm("Index", "Grades", FormMethod.Post))
+{
+    @Html.Label("t1", "Test 1: ");
+    @Html.TextBox("g1", "", new { type = "number", min = "0", max = "100" })
+    <br/>
+    <br/>
+    @Html.Label("t2", "Test 2: ");
+    @Html.TextBox("g2", "", new { type = "number", min = "0", max = "100" })
+    <br/>
+    <br/>
+    @Html.Label("t3", "Test 3: ");
+    @Html.TextBox("g3", "", new { type = "number", min = "0", max = "100" })
+    <br/>
+    <br/>
+    <input type="submit" value="Calculate">
+    <br/><br/>
+}
+@if (ViewData["res"] != null)
+{
+    <p style="color:@ViewData["color"];">Result: @ViewData["res"]</p>
+}
